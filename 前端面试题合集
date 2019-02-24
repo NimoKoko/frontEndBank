@@ -25,94 +25,191 @@
 一、HTML5
 	Q1.HTML5新增特性有哪些？
 	A1.
+		主要是关于图像，位置，存储，多任务等功能的增加。
+		绘画 canvas;
+		用于媒介回放的 video 和 audio 元素;
+		本地离线存储 localStorage ，sessionStorage;
+		语意化更好的内容元素，比如 article、footer、header、nav、section;
+		表单控件，calendar、date、time、email、url、search;
+		新的技术webworker, websockt, Geolocation;
 
 	Q2.localStorage、sessionStorage和cookies之间的区别是什么？
-	A2.
+	A2.存储大小，是否同源，webStorage事件监听，数据有效期，cookie在浏览器和服务器间来回传递，webStorage只存储在本地。
 
 	Q3.浏览器是怎么对HTML5的离线存储资源进行管理和加载的？
 	A3.
+		在线情况下，浏览器发现html头部有manifest属性，它会请求manifest文件，如果是第一次访问app，
+		那么浏览器就会根据manifest文件的内容下载相应的资源并且进行离线存储。如果已经访问过app并且资源已经离线存储了，
+		那么浏览器就会使用离线的资源加载页面，然后浏览器会对比新的manifest文件与旧的manifest文件，
+		如果文件没有发生改变，就不做任何操作，如果文件改变了，那么就会重新下载文件中的资源并进行离线存储。
+		离线情况下，浏览器就直接使用离线存储的资源。
 
 	Q4.你如何对网站的文件和资源进行优化？
 	A4.
+		1、图片优化。
+		2、开启GZip压缩。
+		3.移除不必要的插件
+		4、使用CDN
+		5、压缩CSS、JavaScript和HTML文件
+		6、避免重定向
+		7、避免错误请求
+		8.使用AJAX缓存，让网站内容分批加载，局部更新。
+	
+	Q5.Doctype作用？标准模式与兼容模式各有什么区别？HTML5为什么只需要写<!DOCTYPE HTML>？
+	A5.
+	（1）<!DOCTYPE>声明位于HTML文档中的第一行，处于<html>标签之前，用于告知浏览器的解析器用什么文档标准解析这个文档。
+		DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。
+	（2）标准模式的排版和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示，模拟老式浏览器的行为以防止站点无法工作。
+		HTML5不基于SGML，因此不需要对DTD进行引用，但是需要DOCTYPE来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；
+		HTML4.01基于SGML，所以需要对DTD进行引用，才能让浏览器知道该文档所使用的文档类型。
 
 二、css3
 	Q1.如何理解CSS的盒子模型？
-	A1.
+	A1. ie 盒子模型和标准 w3c 盒子模型。
 
 	Q2.在IE和chrom中的盒子模型有什么区别？
-	A2.
+	A2.宽度定义不一致。
 
 	Q3.CSS是怎样定义权重规则的？
-	A3.
+	A3.行内选择符、ID选择符、类选择符、元素选择符。
 	
 	Q4.CSS3有哪些新特性？
 	A4.
+		1. CSS3实现圆角（border-radius），阴影（box-shadow），边框图片border-image
+		2. 对文字加特效（text-shadow、），强制文本换行（word-wrap），线性渐变（linear-gradient）
+		3. 旋转,缩放,定位,倾斜：transform:rotate(90deg) scale(0.85,0.90) translate(0px,-30px) skew(-9deg,0deg);
+		4. 增加了更多的CSS选择器、多背景、rgba()；
+		5. 在CSS3中唯一引入的伪元素是 ::selection ；
+		6. 媒体查询(@media)，多栏布局（flex）
+
 
 	Q5.请解释一下CSS3的flexbox（弹性盒布局模型）,以及适用场景？
 	A5.
+		FLEX布局的常用场景
+		垂直居中，处于中心，以及左中右三块布局
 
 	Q6.justify-content和align-items除了做水平和垂直居中，还可以干嘛？
 	A6.
 
 三、javascript
 	Q1.js有哪些基本数据类型？
-	A1.
+	A1.number,string,null,undefined,boolean
 
 	Q2.什么是变量提升，什么是函数提升?
 	A2.
 
 	Q3.在页面加载时，script标签增加async、defer分别有什么作用？
 	A3.
+		如果script标签设置了该属性，则浏览器会异步的下载该文件并且不会影响到后续DOM的渲染；
+		如果有多个设置了defer的script标签存在，则会按照顺序执行所有的script；
+		defer脚本会在文档渲染完毕后，DOMContentLoaded事件调用前执行。
+		
+		async的设置，会使得script脚本异步的加载并在允许的情况下执行，async的执行，并不会按着script在页面中的顺序来执行，而是谁先加载完谁执行。
 
 	Q4.call和apply的区别？
-	A4.
+	A4.都是用来修改函数的执行上下文(this)，区别在于接收参数的方式不同；
 
 	Q5.事件委托是什么？
-	A5.
+	A5.事件委托就是利用事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。
 
 	Q6.new一个新的对象，底层会执行哪些操作？
 	A6.
+		1.新生成一个对象
+		2.链接到原型
+		3.绑定this
+		4.返回新对象
 
 	Q7.什么是闭包？有哪些优缺点？
-	A7.
+	A7.闭包就是能够读取其他函数内部变量的函数。
+	        作用：一个是可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中，不会在f1调用后被自动清除。
+	        优点：变量长期驻扎在内存中；避免全局变量的污染。
+	        缺点：常驻内存 会增大内存的使用量 使用不当会造成内存泄露。
 
 	Q8，在有序的数组中我要查询一个数字，有哪几种方法，哪种效率最高？
-	A8.
+	A8.二分法
+	
+	Q9,什么是伪数组？（arguments）
+	A9.
+		1、拥有length属性，其它属性（索引）为非负整数(对象中的索引会被当做字符串来处理，这里你可以当做是个非负整数串来理解)
+		2、不具有数组所具有的方法
+		判断方法isarray
+	Q10,谈一下你对虚拟DOM的理解
+	A10.
+		虚拟DOM就是将DOM树转换成一个JS对象树
+		但是由于他是一级一级进行比较的，这样就会有一个致命的缺点：假设在根元素上又嵌套了一个元素，那么Diff算法在比较第一层的时候就认为改变了，
+		就相当于重新创建了一个JS对象树，这样效率还是不高，
+		此外，还有一个致命的缺点就是;如果同一级上有特别多个相同的元素，在增加或者排序的时候，就会在循环比较的时候浪费掉大量的性能
+		于是，为了解决这两个缺点，虚拟DOM做了两个假设，并且这两个假设也实现了，所以已经解决了这两个缺点
+		两个假设：
+		1、两个相同的组件产生类似的DOM结构，不同的DOM节点产生不同的DOM节点
+		2、对于同一个层次的一组节点，他们可以通过唯一的id进行区分
+		对于第二种假设，就是解释了我们为什么要在vue的v-for里面必须加一个key 并且这个key要是唯一的
+
 
 四、ES6
 	Q1.ES6有哪些新的东西？
-	A1.
+	A1.Let，const，for…of;解构赋值;箭头函数;promise;模板;
+	
+	Default Parameters（默认参数） in ES6
+	Template Literals （模板文本）in ES6
+	Multi-line Strings （多行字符串）in ES6
+	Destructuring Assignment （解构赋值）in ES6
+	Enhanced Object Literals （增强的对象文本）in ES6
+	Arrow Functions （箭头函数）in ES6
+	Promises in ES6
+	Block-Scoped Constructs Let and Const（块作用域构造Let and Const）
+	Classes（类） in ES6
+	Modules（模块） in ES6
 
 	Q2.数组去重，es6是怎么做的？
-	A2.
+	A2.set和Array.from。
 
 	Q3.promise是什么？有哪些方法？
 	A3.
 
 五、vue
 	Q1.vue是mvvm模式，解释一下什么是mvvm？
-	A1.
+	A1.Model-View-ViewModel;
+	描述：MVVM 的核心是 ViewModel 层，它就像是一个中转站（value converter），
+	负责转换 Model 中的数据对象来让数据变得更容易管理和使用，该层向上与视图层进行双向数据绑定，
+	向下与 Model 层通过接口请求进行数据交互，起呈上启下作用。
 
 	Q2.vue的双向数据绑定是什么，底层是怎么实现的，用的方法是什么？
-	A2.
+	A2.数据发生变化的时候，视图也就发生变化，当视图发生变化的时候，数据也会跟着同步变化。
+	   vue数据双向绑定是通过数据劫持结合发布者-订阅者模式的方式来实现。
+	   Object.defineProperty()。
 
 	Q3.vue的全局钩子有哪些，生命周期有哪些?
 	A3.
+		1. 全局的钩子函数:定义在全局路由对象中 
+		2. 某个路由独享的钩子,可以在路由配置上直接定义beforeEnter钩子函数 
+		3. 组件内的钩子函数: 定义在组件的route选项中
 
 	Q4.vue的导航守卫是什么？
 	A4.
+		全局守卫。router.beforeEach
+		当从一个路由跳转到另一个路由的时候触发此守卫，这个守卫也叫全局前置守卫，所以它是跳转前触发的。任何路由跳转都会触发。
+		组件内守卫 beforeRouteEnter，beforeRouteUpdate，beforeRouteLeave
 
 	Q5.vue的父子、子父、兄弟间怎么传值的？
-	A5.
+	A5.父组件通过porps传递到子组件，子组件通过$emit发送事件到父组件;父组件还可以通过ref的方式拿子组件的值并共享；eventBus；
 
 	Q6.Vue的路由实现：hash模式 和 history模式？
 	A6.
+		vue-router中的模式选项主要在router实例化的时候进行定义
+		模式	优点	缺点
+		hash	使用简单、无需后台支持	在url中以hash形式存在，不会传到后台
+		history	地址明确，便于理解和后台处理	需要后台配合
+		hash模式背后的原理是onhashchange事件,可以在window对象上监听这个事件
 
 	Q7.Vue与Angular以及React的区别？
 	A7.
+		vue模板 vs reactJSX
+		对象属性  vs 状态管理
+			？  vs React Native能在手机上创建原生应用
 
 	Q8.vuex是什么？怎么使用？
-	A8.
+	A8.状态管理器
 
 	Q9.对vue组件的理解
 	A9.
