@@ -178,6 +178,12 @@
 	Q18. 判断数据类型有哪几种方法？
 	A19. typeOf,instanceof,Object.prototype.toString();
 
+	Q19.对于一个div，外链的css样式，我js原生要怎么取得他的宽度？
+	A19.
+
+	Q20. 什么是DOM？什么是BOM？分别有哪些方法？
+	A20.
+
 四、ES6
 	Q1.ES6有哪些新的东西？
 	A1.Let，const，for…of;解构赋值;箭头函数;promise;模板;
@@ -254,8 +260,26 @@
 	Q10. vue的路由是怎么实现的？如果让你自己去写一个路由方法，你会怎么写？
 	A10.
 
+	Q11.vuex要怎么配置，需要写哪些东西？
+	A11.
+
 六、react
-	暂缺
+	Q1.react的生命周期有哪些？
+	A1.
+		初始化  
+			1、getDefaultProps() 
+			2、getInitialState()
+			3、componentWillMount()
+			4、render()
+			5、componentDidMount()
+		更新
+			6、componentWillReceiveProps(nextProps)
+			7、shouldComponentUpdate(nextProps, nextState)
+			8、componentWillUpdata(nextProps, nextState)
+			9、render()
+			10、componentDidUpdate()
+		卸载
+			11、componentWillUnmount()
 
 七、angular
 	Q1.angular双向绑定的底层是怎么实现的？
