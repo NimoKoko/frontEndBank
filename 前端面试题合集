@@ -176,6 +176,13 @@
 
 	Q18. 判断数据类型有哪几种方法？
 	A19. typeOf,instanceof,Object.prototype.toString();
+	instanceof
+	1、左操作数是一个对象，右操作数是标识对象的类，如果左侧的对象是右侧类的实例，则表达式返回true，否则返回false
+　	2、如果左边的操作数不是对象，返回false
+　	3、如果右边的操作数不是函数，抛出类型错误异常
+　	4、在计算obj instanceof f 时， 会先计算f.prototype, 然后在原型链中查找obj，如果找到则obj是f或者是f父类的实例，则返回true
+	Object.prototype.toString.call(data);
+	获取对象的类型信息
 
 四、ES6
 	Q1.ES6有哪些新的东西？
