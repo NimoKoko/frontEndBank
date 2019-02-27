@@ -191,12 +191,29 @@
 　　　　　　console.log(rule.style.background)　　　　//red   这样就可以获得了外链样式表中指定的样式了
 
 	Q20. 什么是DOM？什么是BOM？分别有哪些方法？
-	A20.
+	A20. DOM是指的DOM树上的节点，BOM是指浏览器中的方法。
 
 	Q21.面向对象编程
 	a21.
 
-	手写原型链，说明一下继承；说一下vue的缺点和优点；冒泡；http url的结构；
+	Q22.手写原型链，说明一下继承；说一下vue的缺点和优点；冒泡；http url的结构；
+	A22.
+		var animal = {
+			name:"cat",
+			sound:function(){
+				console.log("喵~")
+			}
+		};
+		var tiger = new animal;
+		tiger.prototype.name = "tiger";
+		tiger.prototype.sound = function(){
+			console.log("吼~")
+		}
+		
+		其余继承的方法有apply()和call();
+
+	Q23.什么是事件捕获，什么是事件冒泡？在事件流当中，他们的触发顺序是怎样的？
+	A23.
 
 四、ES6
 	Q1.ES6有哪些新的东西？
@@ -217,12 +234,13 @@
 	A2.set和Array.from。
 
 	Q3.promise是什么？有哪些方法？
-	A3.
+	A3.事件委托，用于处理各种回调，.all() .then()
 
-	04.promise的底层原理是什么？
+	Q4.promise的底层原理是什么？
 	A4.
 
-	05.构造函数内能否使用箭头函数？
+	Q5.构造函数内能否使用箭头函数？
+	A5.
 
 五、vue
 	Q1.vue是mvvm模式，解释一下什么是mvvm？
@@ -235,6 +253,7 @@
 	A2.数据发生变化的时候，视图也就发生变化，当视图发生变化的时候，数据也会跟着同步变化。
 	   vue数据双向绑定是通过数据劫持结合发布者-订阅者模式的方式来实现。
 	   Object.defineProperty()。
+		 底层是setter和getter
 
 	Q3.vue的全局钩子有哪些，生命周期有哪些?
 	A3.
@@ -266,7 +285,7 @@
 			？  vs React Native能在手机上创建原生应用
 
 	Q8.vuex是什么？怎么使用？
-	A8.状态管理器
+	A8.状态管理器，state、actions、mutations
 
 	Q9.对vue组件的理解
 	A9.
@@ -276,6 +295,9 @@
 
 	Q11.vuex要怎么配置，需要写哪些东西？
 	A11.
+
+	Q12.vue的路由传参query和params有什么区别？
+	A12.query的是在url后面直接显示参数，但是params在页面刷新一下后就失效。
 
 六、react
 	Q1.react的生命周期有哪些？
@@ -331,4 +353,5 @@
 	Q4.webpack打包执行了哪些操作?要配置哪些东西?怎么分组打包?
 	A4.
 
-	Q5.
+	Q5.前端的seo优化有哪些？
+	A5.
